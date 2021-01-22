@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %} {% endblock %}
+
+{% block body %}
+
+<hr>
+<h1>Register Arduino ID to User Name: </h1>
+<form action = '/data' method='POST'>
+    Arduino ID: <input type='text' name='ad_id' id="ad_id"/>
+    <br>
+    User Name: <input type='text' name='usr_name' id="usr_name"/>
+    <br>
+    <input type='submit' value='POST'>
+</form>
+<hr>
+{% for info in data %}
+<h3>Arduino ID: {{ info.ad_id }} - User ID: {{ info.usr_name }}</h3>
+<a href='/data/delete/{{ info.id }}'>Delete</a>
+{% endfor %}
+
+{% endblock %}
